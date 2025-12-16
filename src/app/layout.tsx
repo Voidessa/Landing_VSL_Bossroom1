@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
-  title: "BOSSROOM | Сообщество сильных мужчин",
+  title: "slv-amir-saliev-total-red-flag",
   description: "Закрытое сообщество для развития мужского мышления, дисциплины и характера.",
 };
 
