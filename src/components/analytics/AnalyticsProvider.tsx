@@ -2,16 +2,22 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export function AnalyticsProvider() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const sentScroll = useRef<Set<number>>(new Set());
 
   // Track Page View
   useEffect(() => {
     const trackView = async () => {
        try {
+         const utmSource = searchParams.get("utm_source");
+         const utmMedium = searchParams.get("utm_medium");
+         const utmCampaign = searchParams.get("utm_campaign");
+         const utmContent = searchParams.get("utm_content");
+
          await fetch("/api/analytics", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -20,7 +26,11 @@ export function AnalyticsProvider() {
                 data: {
                     url: pathname,
                     screenWidth: window.innerWidth,
-                    userAgent: navigator.userAgent
+                    userAgent: navigator.userAgent,
+                    utmSource,
+                    utmMedium,
+                    utmCampaign,
+                    utmContent
                 }
             })
          });
@@ -31,7 +41,7 @@ export function AnalyticsProvider() {
     trackView();
     // Reset scroll tracking on page change
     sentScroll.current.clear();
-  }, [pathname]);
+  }, [pathname, searchParams]);
 
   // Track Scroll Depth
   useEffect(() => {

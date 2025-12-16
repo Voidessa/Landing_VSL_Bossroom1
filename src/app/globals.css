@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  --font-anton: "Anton", sans-serif;
+  --font-oswald: "Oswald", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
   --animate-fade-in: fade-in 0.7s ease-out forwards;
   --animate-fade-in-up: fade-in-up 0.7s ease-out forwards;
 
