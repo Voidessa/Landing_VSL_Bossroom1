@@ -59,7 +59,7 @@ export const Hero = () => {
                allowFullScreen
                className="absolute inset-0 w-full h-full"
              ></iframe>
-             <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-white/10">3-QADAM. VSL</div>
+
         </div>
 
         {/* Short CTA below video */}
