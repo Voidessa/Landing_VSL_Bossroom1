@@ -27,11 +27,14 @@ export async function POST(request: Request) {
 
     const timestamp = new Date().toISOString();
     
-    // Flat structure for Looker Studio: Timestamp, EventName, URL, ScreenWidth, UserAgent, UTM Source, UTM Medium, UTM Campaign, UTM Content
+    // Updated structure with SessionID, Referrer, Language
     const row = [
         timestamp,
         event,
+        data?.sessionId || "no-session",
         data?.url || "/",
+        data?.referrer || "",
+        data?.language || "en",
         data?.screenWidth || "unknown",
         data?.userAgent || "unknown",
         data?.utmSource || "",
@@ -42,7 +45,7 @@ export async function POST(request: Request) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "Sheet1!A:I", 
+      range: "Sheet1!A:L", 
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [row],

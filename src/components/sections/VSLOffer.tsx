@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 export const VSLOffer = () => {
     return (
@@ -74,6 +75,7 @@ export const VSLOffer = () => {
                     <Link
                         href="https://t.me/aurumai_second_bot"
                         target="_blank"
+                        onClick={() => trackEvent("click_cta_bossroom")}
                         className="group relative inline-flex w-full items-center justify-center rounded-xl bg-red-600 px-8 py-6 text-2xl md:text-3xl font-anton text-white shadow-[0_0_40px_rgba(220,38,38,0.6)] transition-all hover:bg-red-700 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(220,38,38,0.8)] active:scale-95"
                     >
                         <span className="relative z-10">BOSSROOM’GA KIRISH</span>

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 
 export const Hero = () => {
   return (
@@ -48,18 +49,7 @@ export const Hero = () => {
 
         {/* Step 3: VSL Player */}
         <div className="w-full aspect-video rounded-xl overflow-hidden shadow-[0_0_50px_rgba(220,38,38,0.15)] border border-white/5 animate-fade-in-up opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] bg-zinc-900 relative group max-w-3xl mx-auto mt-8">
-             <iframe 
-               width="100%" 
-               height="100%" 
-                src="https://www.youtube.com/embed/39EbnNBVUWk" 
-               title="YouTube video player" 
-               frameBorder="0" 
-               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-               referrerPolicy="strict-origin-when-cross-origin" 
-               allowFullScreen
-               className="absolute inset-0 w-full h-full"
-             ></iframe>
-
+             <YouTubeEmbed videoId="39EbnNBVUWk" className="absolute inset-0 w-full h-full" />
         </div>
 
         {/* Short CTA below video */}
