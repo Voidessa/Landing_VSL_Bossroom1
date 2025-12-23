@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  /* Lenis handles smooth scrolling */
+}
+
 @theme {
   --font-anton: "Anton", sans-serif;
   --font-oswald: "Oswald", sans-serif;
@@ -9,12 +13,25 @@
   --animate-fade-in-up: fade-in-up 0.7s ease-out forwards;
 
   @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
+
   @keyframes fade-in-up {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -23,8 +40,4 @@
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
   }
-}
-
-body {
-  @apply bg-black text-white antialiased;
 }

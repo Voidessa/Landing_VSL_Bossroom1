@@ -27,7 +27,17 @@ export async function POST(request: Request) {
 
     const timestamp = new Date().toISOString();
     
-    // Updated structure with SessionID, Referrer, Language
+    // Headers from Vercel
+    const country = request.headers.get("x-vercel-ip-country") || "unknown";
+    const city = request.headers.get("x-vercel-ip-city") || "unknown";
+    
+    // Simple Device Detection
+    const width = data?.screenWidth;
+    let device = "desktop";
+    if (width && width < 768) device = "mobile";
+    else if (width && width < 1024) device = "tablet";
+
+    // Updated structure with SessionID, Referrer, Language, Geo, Device
     const row = [
         timestamp,
         event,
@@ -40,12 +50,15 @@ export async function POST(request: Request) {
         data?.utmSource || "",
         data?.utmMedium || "",
         data?.utmCampaign || "",
-        data?.utmContent || ""
+        data?.utmContent || "",
+        country,
+        city,
+        device
     ];
 
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "Лист1!A:L", 
+      range: "Лист1!A:O", 
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [row],

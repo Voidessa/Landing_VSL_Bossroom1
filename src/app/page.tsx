@@ -1,14 +1,12 @@
 import { Hero } from "@/components/sections/Hero";
-import { VSLContent } from "@/components/sections/VSLContent";
-import { VSLOffer } from "@/components/sections/VSLOffer";
+import { ActionButtons } from "@/components/sections/ActionButtons";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-black">
+    <main className="flex min-h-screen flex-col bg-black selection:bg-red-900 selection:text-white">
       <Hero />
-      <VSLContent />
-      <VSLOffer />
+      <ActionButtons />
       <Footer />
     </main>
   );
