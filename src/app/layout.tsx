@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Закрытое сообщество для развития мужского мышления, дисциплины и характера.",
   icons: {
     icon: "/icon.jpg",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.jpg",
   },
 };
 
