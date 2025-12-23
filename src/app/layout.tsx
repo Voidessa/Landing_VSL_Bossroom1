@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/apple-icon.jpg",
   },
+  manifest: "/manifest.json",
 };
 
 import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
