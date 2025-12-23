@@ -11,6 +11,7 @@ export const content = {
             description_bold: "Ideal sharoitlarni kutmasdan.",
         },
         actions: {
+            payment: "TO'LOVGA O'TISH",
             bossroom: "BOSSROOM HAQIDA BATAFSIL",
             limited_access: "CHEKLANGAN KIRISH",
             faq: "TUSHUNMOVCHILIKLAR / FAQ",
@@ -49,6 +50,7 @@ export const content = {
             description_bold: "Не дожидаясь идеальных условий.",
         },
         actions: {
+            payment: "ПЕРЕЙТИ К ОПЛАТЕ",
             bossroom: "ПОДРОБНЕЕ ПРО BOSSROOM",
             limited_access: "ОГРАНИЧЕННЫЙ ДОСТУП",
             faq: "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ / FAQ",
@@ -87,6 +89,7 @@ export const content = {
             description_bold: "Without waiting for ideal conditions.",
         },
         actions: {
+            payment: "PROCEED TO CHECKOUT",
             bossroom: "LEARN ABOUT BOSSROOM",
             limited_access: "LIMITED ACCESS",
             faq: "FREQUENTLY ASKED QUESTIONS / FAQ",
