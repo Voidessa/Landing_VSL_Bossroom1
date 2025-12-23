@@ -36,6 +36,9 @@ export const ActionButtons = () => {
                 href="https://site-for-bossroom-2.vercel.app"
                 className="group relative w-full md:w-auto"
             >
+                {/* Silver/White Glow Effect */}
+                <div className="absolute -inset-1 rounded-xl bg-white/30 opacity-40 blur-lg transition duration-1000 group-hover:opacity-60 group-hover:duration-200 animate-pulse" />
+
                 <button className="relative w-full md:w-[480px] flex items-center justify-center gap-3 rounded-xl bg-black border border-white/10 px-6 py-4 md:py-6 text-lg md:text-2xl font-oswald italic font-bold uppercase tracking-wider text-zinc-300 transition-all hover:text-white hover:bg-zinc-900 hover:border-red-900/50 hover:scale-[1.02] active:scale-[0.98]">
                     <span className="drop-shadow-sm">{t.actions.bossroom}</span>
                 </button>
