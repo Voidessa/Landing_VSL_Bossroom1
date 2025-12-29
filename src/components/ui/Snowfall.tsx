@@ -24,7 +24,7 @@ export const Snowfall = () => {
             delay: Math.random() * 10, // delay in seconds
             duration: Math.random() * 10 + 10, // duration between 10-20s for slow fall
             size: Math.random() * 4 + 2, // size between 2px-6px
-            opacity: Math.random() * 0.5 + 0.3, // opacity between 0.3-0.8
+            opacity: Math.random() * 0.5 + 0.4, // increased opacity for dark particles
         }));
         setSnowflakes(newSnowflakes);
     }, []);
@@ -34,7 +34,7 @@ export const Snowfall = () => {
             {snowflakes.map((flake) => (
                 <motion.div
                     key={flake.id}
-                    className="absolute bg-white rounded-full shadow-[0_0_4px_2px_rgba(255,255,255,0.1)] backdrop-blur-[1px]"
+                    className="absolute bg-zinc-900 border border-zinc-800/50 rounded-none shadow-sm" // Black/Dark, Square, Brutal
                     style={{
                         left: `${flake.x}%`,
                         width: flake.size,
