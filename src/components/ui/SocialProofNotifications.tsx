@@ -33,40 +33,55 @@ export function SocialProofNotifications() {
     const { t } = useLanguage();
     const [currentNotification, setCurrentNotification] = useState<Notification | null>(null);
 
-    // Dynamic notifications with keys instead of hardcoded text
-    const notifications: Notification[] = [
-        { name: "Aziz R.", action: "join", type: "join" },
-        { name: "Jamshid K.", action: "payment", type: "payment" },
-        { name: "Sardor M.", action: "member", type: "join" },
-        { name: "Bekzod T.", action: "subscription", type: "payment" },
-        { name: "Otabek A.", action: "action", type: "action" },
-        { name: "Farrukh S.", action: "join", type: "join" },
-        { name: "Shakhzod U.", action: "access", type: "action" },
-        { name: "Jasur N.", action: "club", type: "join" },
-        { name: "Ulughbek I.", action: "payment", type: "payment" },
-        { name: "Bobur D.", action: "join", type: "join" },
-        { name: "Sanjar Q.", action: "payment", type: "payment" },
-        { name: "Firdavs X.", action: "member", type: "join" },
+    // Uzbek names database
+    const firstNames = [
+        "Aziz", "Jamshid", "Sardor", "Bekzod", "Otabek", "Farrukh", "Shakhzod", "Jasur", "Ulughbek",
+        "Bobur", "Sanjar", "Firdavs", "Akmal", "Botir", "Dilshod", "Eldor", "Javlon", "Kamron",
+        "Mansur", "Nodir", "Oybek", "Qobil", "Ravshan", "Sherzod", "Temur", "Umid", "Vali",
+        "Xurshid", "Yusuf", "Zafar", "Abror", "Bilol", "Davron", "Ghayrat", "Hikmat", "Ilhom",
+        "Jalol", "Komil", "Laziz", "Mirzod", "Nurbek", "Olim", "Polat", "Rustam", "Salim",
+        "Tohir", "Usmon", "Vohid", "Xayrulla", "Yoqub", "Zohid"
     ];
+
+    const lastInitials = [
+        "A.", "B.", "D.", "E.", "F.", "G.", "H.", "I.", "J.", "K.", "L.", "M.", "N.", "O.", "P.",
+        "Q.", "R.", "S.", "T.", "U.", "V.", "X.", "Y.", "Z.", "Sh.", "Ch."
+    ];
+
+    const actions = [
+        { key: "join", type: "join" },
+        { key: "payment", type: "payment" },
+        { key: "member", type: "join" },
+        { key: "subscription", type: "payment" },
+        { key: "action", type: "action" },
+        { key: "access", type: "action" },
+        { key: "club", type: "join" }
+    ] as const;
 
     useEffect(() => {
         let timeoutId: NodeJS.Timeout;
         let hideTimeoutId: NodeJS.Timeout;
 
         const scheduleNext = () => {
-            // Random interval between 5 and 12 seconds (5000 - 12000ms)
             const interval = Math.floor(Math.random() * (12000 - 5000 + 1)) + 5000;
 
             timeoutId = setTimeout(() => {
-                const randomNotif = notifications[Math.floor(Math.random() * notifications.length)];
-                setCurrentNotification(randomNotif);
+                // Generate random data on the fly
+                const randomName = firstNames[Math.floor(Math.random() * firstNames.length)];
+                const randomInitial = lastInitials[Math.floor(Math.random() * lastInitials.length)];
+                const randomAction = actions[Math.floor(Math.random() * actions.length)];
 
-                // Show for 4-5 seconds
+                setCurrentNotification({
+                    name: `${randomName} ${randomInitial}`,
+                    action: randomAction.key,
+                    type: randomAction.type
+                });
+
                 const duration = Math.floor(Math.random() * (5000 - 4000 + 1)) + 4000;
 
                 hideTimeoutId = setTimeout(() => {
                     setCurrentNotification(null);
-                    scheduleNext(); // Schedule the next one after hiding
+                    scheduleNext();
                 }, duration);
 
             }, interval);
