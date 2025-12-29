@@ -28,13 +28,13 @@ export const Hero = () => {
         {/* Offer Section */}
         <div className="space-y-6 animate-fade-in-up opacity-0 [animation-fill-mode:forwards]">
           <h1 className="font-oswald italic text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.9] tracking-tight mb-8">
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-zinc-300 via-white to-zinc-400 drop-shadow-sm">
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-zinc-300 via-white to-zinc-400 drop-shadow-sm pr-2">
               {t.hero.title_prefix}
             </span> <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-600 drop-shadow-[0_0_30px_rgba(220,38,38,0.7)]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-600 drop-shadow-[0_0_30px_rgba(220,38,38,0.7)] pr-2">
               {t.hero.title_highlight}
             </span> <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-zinc-300 via-white to-zinc-400 drop-shadow-sm">
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-zinc-300 via-white to-zinc-400 drop-shadow-sm pr-2">
               {t.hero.title_suffix}
             </span>
           </h1>
