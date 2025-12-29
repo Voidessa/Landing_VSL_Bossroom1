@@ -49,13 +49,7 @@ export function SocialProofNotifications() {
     ];
 
     const actions = [
-        { key: "join", type: "join" },
         { key: "payment", type: "payment" },
-        { key: "member", type: "join" },
-        { key: "subscription", type: "payment" },
-        { key: "action", type: "action" },
-        { key: "access", type: "action" },
-        { key: "club", type: "join" }
     ] as const;
 
     useEffect(() => {
