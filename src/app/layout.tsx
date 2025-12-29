@@ -10,11 +10,7 @@ const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton
 export const metadata: Metadata = {
   title: "slv-amir-saliev-total-red-flag",
   description: "Закрытое сообщество для развития мужского мышления, дисциплины и характера.",
-  icons: {
-    icon: "/icon.jpg",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.jpg",
-  },
+
   manifest: "/manifest.json",
 };
 
