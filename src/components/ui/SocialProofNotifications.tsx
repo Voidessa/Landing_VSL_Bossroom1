@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { UserPlus, Zap, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 type NotificationType = "join" | "payment" | "action";
 
@@ -14,19 +15,39 @@ interface Notification {
 }
 
 const NOTIFICATIONS: Notification[] = [
-    { name: "Алексей В.", action: "присоединился к Bossroom", type: "join" },
-    { name: "Иван Д.", action: "оплатил участие", type: "payment" },
-    { name: "Елена К.", action: "стала участником", type: "join" },
-    { name: "Дмитрий С.", action: "продлил подписку", type: "payment" },
-    { name: "Максим Р.", action: "начал обучение", type: "action" },
-    { name: "Ольга М.", action: "присоединилась к сообществу", type: "join" },
-    { name: "Андрей П.", action: "получил доступ", type: "action" },
-    { name: "Сергей Б.", action: "вступил в клуб", type: "join" },
-    { name: "Николай Ф.", action: "оплатил доступ", type: "payment" },
+    { name: "Aziz R.", action: "присоединился к Bossroom", type: "join" },
+    { name: "Jamshid K.", action: "оплатил участие", type: "payment" },
+    { name: "Sardor M.", action: "стал участником", type: "join" },
+    { name: "Bekzod T.", action: "продлил подписку", type: "payment" },
+    { name: "Otabek A.", action: "начал обучение", type: "action" },
+    { name: "Farrukh S.", action: "присоединился к сообществу", type: "join" },
+    { name: "Shakhzod U.", action: "получил доступ", type: "action" },
+    { name: "Jasur N.", action: "вступил в клуб", type: "join" },
+    { name: "Ulughbek I.", action: "оплатил доступ", type: "payment" },
+    { name: "Bobur D.", action: "присоединился к Bossroom", type: "join" },
+    { name: "Sanjar Q.", action: "оплатил участие", type: "payment" },
+    { name: "Firdavs X.", action: "стал участником", type: "join" },
 ];
 
 export function SocialProofNotifications() {
+    const { t } = useLanguage();
     const [currentNotification, setCurrentNotification] = useState<Notification | null>(null);
+
+    // Dynamic notifications with keys instead of hardcoded text
+    const notifications: Notification[] = [
+        { name: "Aziz R.", action: "join", type: "join" },
+        { name: "Jamshid K.", action: "payment", type: "payment" },
+        { name: "Sardor M.", action: "member", type: "join" },
+        { name: "Bekzod T.", action: "subscription", type: "payment" },
+        { name: "Otabek A.", action: "action", type: "action" },
+        { name: "Farrukh S.", action: "join", type: "join" },
+        { name: "Shakhzod U.", action: "access", type: "action" },
+        { name: "Jasur N.", action: "club", type: "join" },
+        { name: "Ulughbek I.", action: "payment", type: "payment" },
+        { name: "Bobur D.", action: "join", type: "join" },
+        { name: "Sanjar Q.", action: "payment", type: "payment" },
+        { name: "Firdavs X.", action: "member", type: "join" },
+    ];
 
     useEffect(() => {
         let timeoutId: NodeJS.Timeout;
@@ -37,7 +58,7 @@ export function SocialProofNotifications() {
             const interval = Math.floor(Math.random() * (12000 - 5000 + 1)) + 5000;
 
             timeoutId = setTimeout(() => {
-                const randomNotif = NOTIFICATIONS[Math.floor(Math.random() * NOTIFICATIONS.length)];
+                const randomNotif = notifications[Math.floor(Math.random() * notifications.length)];
                 setCurrentNotification(randomNotif);
 
                 // Show for 4-5 seconds
@@ -73,14 +94,18 @@ export function SocialProofNotifications() {
                             "pointer-events-auto",
                             "flex items-center gap-4",
                             "pl-4 pr-6 py-3",
-                            "bg-[#0A0A0A]/80 backdrop-blur-md", // Deep dark glass
-                            "border border-white/5", // Very subtle border
-                            "rounded-xl",
-                            "shadow-[0_8px_32px_rgba(0,0,0,0.5)]", // Deep shadow
+                            "bg-[#050505] backdrop-blur-xl", // Darker background
+                            "border border-red-600/50", // Red border
+                            "rounded-none", // Sharp corners
+                            "shadow-[0_0_20px_rgba(220,38,38,0.2)]", // Red glow shadow
                             "min-w-[260px]",
-                            "group cursor-default select-none"
+                            "group cursor-default select-none",
+                            "hover:border-red-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] transition-all duration-300" // Interactive hover
                         )}
                     >
+                        {/* Angular decorative corner */}
+                        <div className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t border-l border-red-500" />
+                        <div className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b border-r border-red-500" />
                         {/* Icon Container with Glow */}
                         <div className={cn(
                             "relative flex items-center justify-center w-10 h-10 rounded-full",
@@ -104,7 +129,8 @@ export function SocialProofNotifications() {
                                 {currentNotification.name}
                             </span>
                             <span className="text-[12px] text-white/50 font-medium leading-tight">
-                                {currentNotification.action}
+                                {/* @ts-ignore - dynamic key access */}
+                                {t.social_proof[currentNotification.action]}
                             </span>
                         </div>
 

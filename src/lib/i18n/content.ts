@@ -16,6 +16,15 @@ export const content = {
             limited_access: "CHEKLANGAN KIRISH",
             faq: "TUSHUNMOVCHILIKLAR / FAQ",
         },
+        social_proof: {
+            join: "Bossroomga qo'shildi",
+            payment: "Bossroomga kirish uchun to'lov qildi",
+            action: "o'qishni boshladi",
+            member: "ishtirokchi bo'ldi",
+            subscription: "obunani uzaytirdi",
+            access: "kirish huquqini oldi",
+            club: "klubga kirdi",
+        },
         faq: {
             title: "FAQ / Tushunmovchiliklar",
             copyright_prefix: "BOSSROOM ©",
@@ -55,6 +64,15 @@ export const content = {
             limited_access: "ОГРАНИЧЕННЫЙ ДОСТУП",
             faq: "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ / FAQ",
         },
+        social_proof: {
+            join: "присоединился к Bossroom",
+            payment: "Оплатил доступ в Bossroom",
+            action: "начал обучение",
+            member: "стал участником",
+            subscription: "продлил подписку",
+            access: "получил доступ",
+            club: "вступил в клуб",
+        },
         faq: {
             title: "FAQ / Часто задаваемые вопросы",
             copyright_prefix: "BOSSROOM ©",
@@ -93,6 +111,15 @@ export const content = {
             bossroom: "LEARN ABOUT BOSSROOM",
             limited_access: "LIMITED ACCESS",
             faq: "FREQUENTLY ASKED QUESTIONS / FAQ",
+        },
+        social_proof: {
+            join: "joined Bossroom",
+            payment: "Paid for access to Bossroom",
+            action: "started learning",
+            member: "became a member",
+            subscription: "renewed subscription",
+            access: "got access",
+            club: "joined the club",
         },
         faq: {
             title: "FAQ / Questions",
